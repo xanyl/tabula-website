@@ -1,0 +1,120 @@
+<h2>Component Architecture & Data Flow</h2>
+<p class="subtitle">Server components by default, client components only when interactivity is needed</p>
+
+<div class="section">
+  <h3>Component Hierarchy</h3>
+  <div class="mockup">
+    <div class="mockup-header">Key Shared Components</div>
+    <div class="mockup-body">
+      <table style="width:100%;border-collapse:collapse;font-size:0.85rem">
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+          <th style="text-align:left;padding:8px 12px">Component</th>
+          <th style="text-align:left;padding:8px 12px">Type</th>
+          <th style="text-align:left;padding:8px 12px">What it does</th>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:8px 12px">Navbar</td>
+          <td style="padding:8px 12px">Server</td>
+          <td style="padding:8px 12px">Sticky nav with auth-aware CTA (shows "Dashboard" if logged in)</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:8px 12px">Footer</td>
+          <td style="padding:8px 12px">Server</td>
+          <td style="padding:8px 12px">Navigation, tagline, legal links</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:8px 12px">ContactForm</td>
+          <td style="padding:8px 12px">Client</td>
+          <td style="padding:8px 12px">Validated form, submits via server action, shows success/error states</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:8px 12px">ServiceCard</td>
+          <td style="padding:8px 12px">Server</td>
+          <td style="padding:8px 12px">Reusable card for services grid</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:8px 12px">ProcessStep</td>
+          <td style="padding:8px 12px">Server</td>
+          <td style="padding:8px 12px">Numbered step with icon, title, description</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:8px 12px">CaseStudyCard</td>
+          <td style="padding:8px 12px">Server</td>
+          <td style="padding:8px 12px">Preview card with title, metric, excerpt</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:8px 12px">BlogCard</td>
+          <td style="padding:8px 12px">Server</td>
+          <td style="padding:8px 12px">Post preview with date, category, title</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:8px 12px">MobileNav</td>
+          <td style="padding:8px 12px">Client</td>
+          <td style="padding:8px 12px">Slide-out drawer with focus trap and escape-to-close</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:8px 12px">DashboardSidebar</td>
+          <td style="padding:8px 12px">Client</td>
+          <td style="padding:8px 12px">Collapsible sidebar with active link highlighting</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px">ThemeToggle</td>
+          <td style="padding:8px 12px">Client</td>
+          <td style="padding:8px 12px">Dark/light/system toggle, persisted to cookie</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Data Flow Pattern</h3>
+  <div class="mockup">
+    <div class="mockup-header">How Data Moves</div>
+    <div class="mockup-body">
+      <div style="display:grid;gap:16px">
+        <div class="placeholder">
+          <strong>Public Pages → No API calls</strong><br>
+          Server components render directly from Prisma queries on the server. No client-side fetching.
+        </div>
+        <div class="placeholder">
+          <strong>Mutations → Server Actions</strong><br>
+          Contact form, profile updates, inquiry creation — all via server actions with progressive enhancement. Works without JS.
+        </div>
+        <div class="placeholder">
+          <strong>Dashboard Data → Server Components + RSC</strong><br>
+          Project status, inquiry history fetched server-side. Only interactive bits (dropdowns, modals) are client components.
+        </div>
+        <div class="placeholder">
+          <strong>Auth State → Session Context</strong><br>
+          Session checked in middleware for route protection. Session data available in server components via `auth()`. Client components get it via SessionProvider.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>"Client" Components Are Leaf Nodes</h3>
+  <div class="mockup">
+    <div class="mockup-header">Principle: Push interactivity to the leaves</div>
+    <div class="mockup-body">
+      <pre style="font-size:0.82rem;line-height:1.6;margin:0">
+// Good — the form is a client leaf inside a server page
+// app/(marketing)/contact/page.tsx (Server Component)
+export default async function ContactPage() {
+  return (
+    &lt;ContactSection&gt;
+      &lt;ContactForm /&gt;  {/* Client Component — the only one */}
+    &lt;/ContactSection&gt;
+  );
+}
+
+// Bad — making the whole page a client component
+"use client";
+export default function ContactPage() {
+  // entire tree is now client-rendered, no SEO benefit
+}</pre>
+    </div>
+  </div>
+</div>

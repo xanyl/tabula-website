@@ -1,0 +1,108 @@
+<h2>Authentication Flow</h2>
+<p class="subtitle">NextAuth.js v5 with Google + GitHub + email magic link providers</p>
+
+<div class="section">
+  <h3>Sign-In Flow</h3>
+  <div class="mockup">
+    <div class="mockup-header">User visits /auth/signin</div>
+    <div class="mockup-body">
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:0.85rem">
+        <div class="placeholder" style="display:flex;align-items:center;gap:12px">
+          <span style="font-size:1.5rem">1</span>
+          <span>User clicks provider button → NextAuth redirects to OAuth provider</span>
+        </div>
+        <div style="text-align:center;color:var(--muted);font-size:0.8rem">or</div>
+        <div class="placeholder" style="display:flex;align-items:center;gap:12px">
+          <span style="font-size:1.5rem">1</span>
+          <span>User enters email → magic link sent via Resend → click link → verified</span>
+        </div>
+        <div class="placeholder" style="display:flex;align-items:center;gap:12px">
+          <span style="font-size:1.5rem">2</span>
+          <span>Callback verifies token, checks DB for existing user → upserts user record in `User` table</span>
+        </div>
+        <div class="placeholder" style="display:flex;align-items:center;gap:12px">
+          <span style="font-size:1.5rem">3</span>
+          <span>JWT session created → cookie set → redirect to /dashboard</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Middleware Protection</h3>
+  <div class="mockup">
+    <div class="mockup-header">Route Protection Matrix</div>
+    <div class="mockup-body">
+      <table style="width:100%;border-collapse:collapse;font-size:0.85rem">
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+          <th style="text-align:left;padding:8px 12px">Route</th>
+          <th style="text-align:left;padding:8px 12px">No Session</th>
+          <th style="text-align:left;padding:8px 12px">Has Session</th>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:8px 12px">/, /services, /about, /blog, /case-studies, /contact</td>
+          <td style="padding:8px 12px;color:var(--accent-2)">Allowed</td>
+          <td style="padding:8px 12px;color:var(--accent-2)">Allowed</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:8px 12px">/auth/signin, /auth/signup</td>
+          <td style="padding:8px 12px;color:var(--accent-2)">Allowed</td>
+          <td style="padding:8px 12px;color:var(--accent)">Redirect to /dashboard</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px">/dashboard/*</td>
+          <td style="padding:8px 12px;color:var(--accent)">Redirect to /auth/signin</td>
+          <td style="padding:8px 12px;color:var(--accent-2)">Allowed</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Session Availability</h3>
+  <div class="mockup">
+    <div class="mockup-body">
+      <div style="display:grid;gap:16px">
+        <div class="placeholder">
+          <strong>Server Components</strong><br>
+          <code style="font-size:0.82rem">const session = await auth()</code> — available everywhere, no provider needed
+        </div>
+        <div class="placeholder">
+          <strong>Client Components</strong><br>
+          <code style="font-size:0.82rem">&lt;SessionProvider&gt;</code> wraps the dashboard layout only. Marketing pages don't need it.
+        </div>
+        <div class="placeholder">
+          <strong>API Routes</strong><br>
+          <code style="font-size:0.82rem">auth()</code> directly in route handlers for webhook protection or external API callers
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Auth-Aware Navbar</h3>
+  <div class="mockup">
+    <div class="mockup-header">No dedicated auth pages needed in marketing layout</div>
+    <div class="mockup-body">
+      <pre style="font-size:0.82rem;line-height:1.6;margin:0">
+// Navbar (server component) — reads session, renders the right CTA
+import { auth } from "@/lib/auth";
+
+export async function Navbar() {
+  const session = await auth();
+
+  return (
+    &lt;nav&gt;
+      ...links...
+      {session
+        ? &lt;Link href="/dashboard"&gt;Dashboard&lt;/Link&gt;
+        : &lt;Link href="/auth/signin"&gt;Sign in&lt;/Link&gt;}
+    &lt;/nav&gt;
+  );
+}</pre>
+    </div>
+  </div>
+</div>
