@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const study = await prisma.caseStudy.findUnique({ where: { slug } });
   if (!study) return { title: "Not Found" };
   return {
-    title: `${study.title} — Tabula Case Study`,
+    title: study.title,
     description: study.excerpt || study.content.slice(0, 160),
   };
 }

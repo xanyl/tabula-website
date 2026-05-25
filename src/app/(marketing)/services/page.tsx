@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Services — Tabula",
+  title: "Services",
   description:
     "End-to-end workflow transformation: from process mapping to AI-powered automation.",
 };

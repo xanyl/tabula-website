@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Blog — Tabula",
+  title: "Blog",
   description:
     "Insights on workflow automation, AI operations, and building better business systems.",
 };

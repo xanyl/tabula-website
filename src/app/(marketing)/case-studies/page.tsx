@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Case Studies — Tabula",
+  title: "Case Studies",
   description:
     "Real results from companies that transformed their workflows with Tabula.",
 };

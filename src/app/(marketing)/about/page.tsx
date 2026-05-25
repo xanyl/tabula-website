@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "About — Tabula",
+  title: "About",
   description:
     "Tabula helps businesses transform manual workflows into AI-powered automated systems.",
 };

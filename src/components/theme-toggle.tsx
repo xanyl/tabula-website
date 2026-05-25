@@ -12,15 +12,13 @@ function getInitialDark(): boolean {
 }
 
 export function ThemeToggle() {
-  const [dark, setDark] = useState(getInitialDark);
+  const [mounted, setMounted] = useState(false);
+  const [dark, setDark] = useState(true);
 
-  // Sync the class on mount in case it was set by an inline script
   useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark");
-    if (isDark !== dark) {
-      setDark(isDark);
-    }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    setMounted(true);
+    setDark(getInitialDark());
+  }, []);
 
   const toggle = useCallback(() => {
     const next = !dark;
@@ -31,13 +29,20 @@ export function ThemeToggle() {
     } catch { /* localStorage unavailable */ }
   }, [dark]);
 
+  // Before mount, render the server default (dark) to avoid hydration mismatch.
+  // After mount, the real preference from localStorage takes over.
+  const label = mounted
+    ? dark ? "Switch to light mode" : "Switch to dark mode"
+    : "Switch to light mode";
+  const icon = mounted ? (dark ? "☀" : "☾") : "☀";
+
   return (
     <button
       onClick={toggle}
       className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-sm transition-colors hover:bg-white/[0.06]"
-      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={label}
     >
-      {dark ? "☀" : "☾"}
+      {icon}
     </button>
   );
 }

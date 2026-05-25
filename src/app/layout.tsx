@@ -21,7 +21,6 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: {
     default: "Tabula — Where workflows become intelligent",
-    template: "%s | Tabula",
   },
   description:
     "Tabula helps companies transform manual workflows into automated, intelligent systems using practical AI.",
