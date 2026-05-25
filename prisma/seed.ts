@@ -33,6 +33,56 @@ async function main() {
   });
 
   console.log("Seeded blog post:", samplePost.title);
+
+  const sampleStudy = await prisma.caseStudy.upsert({
+    where: { slug: "fintech-compliance-automation" },
+    update: {},
+    create: {
+      title: "How a Fintech Startup Cut Compliance Review Time by 60%",
+      slug: "fintech-compliance-automation",
+      industry: "Financial Services",
+      excerpt:
+        "A 40-person fintech company was drowning in manual compliance reviews. Tabula built an AI workflow that cut review time from 45 minutes to 18 — and caught more issues.",
+      content: `<p>When ComplianceTech (name changed for confidentiality) reached out to Tabula, they were processing 300+ compliance reviews per week. Each review took an average of 45 minutes. The team of 8 analysts was working overtime, and the backlog was growing.</p>
+
+<h2>The Baseline</h2>
+<p>We spent two weeks embedded with the compliance team, mapping their exact workflow. What we found was surprising: only about 15 minutes of the 45-minute review was actual analysis. The rest was data gathering — pulling reports from 4 different systems, cross-referencing customer profiles, checking against regulatory databases.</p>
+<p>This is the pattern we see everywhere: the work isn't the work. The work is finding the work.</p>
+
+<h2>The Build</h2>
+<p>Tabula built a 3-stage AI workflow:</p>
+<ol>
+<li><strong>Ingestion layer:</strong> Automated data pull from all 4 source systems, normalized into a single review workspace</li>
+<li><strong>Analysis layer:</strong> An LLM-powered pre-review that flagged high-risk items, cross-referenced regulations, and surfaced relevant precedent</li>
+<li><strong>Decision layer:</strong> A structured review interface where analysts made final calls, with every decision logged for audit</li>
+</ol>
+
+<h2>The Results</h2>
+<p>After 6 weeks of iteration and refinement:</p>
+<ul>
+<li>Average review time: 45 minutes → 18 minutes (60% reduction)</li>
+<li>Issues caught: improved by 12% (the AI spotted patterns humans were missing)</li>
+<li>Team morale: analysts reported spending time on "actual analysis, not copy-paste"</li>
+<li>Backlog: eliminated within 3 weeks of deployment</li>
+</ul>
+
+<h2>What Made It Work</h2>
+<p>Three things:</p>
+<ol>
+<li><strong>We didn't replace the analysts.</strong> The AI did the grunt work. Humans made the decisions. This was critical for regulatory acceptance.</li>
+<li><strong>We built for observability.</strong> Every AI decision was traced, timestamped, and auditable. The compliance lead could see exactly what the system did and why.</li>
+<li><strong>We iterated in production.</strong> Week 1 was rough. Week 3 was solid. Week 6 was excellent. You can't design a workflow like this upfront — you have to refine it with real data.</li>
+</ol>
+
+<p>Six months later, the team is handling 30% more volume with the same headcount, and audit findings are at an all-time low.</p>`,
+      results: ["60% faster reviews", "12% more issues caught", "Zero backlog in 3 weeks"],
+      metrics: {},
+      published: true,
+      publishedAt: new Date(),
+    },
+  });
+
+  console.log("Seeded case study:", sampleStudy.title);
 }
 
 main()
