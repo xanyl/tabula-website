@@ -35,16 +35,16 @@ export function ProblemSection() {
               <p className="mb-6 text-xs font-semibold uppercase tracking-[0.12em] text-text-muted">
                 Without Tabula
               </p>
-              <div className="space-y-3">
+              <ul className="space-y-3">
                 {beforeItems.map((item, i) => (
-                  <div
+                  <li
                     key={i}
                     className="rounded-xl border border-dashed border-white/[0.08] px-5 py-4 text-sm text-text-muted"
                   >
                     {item}
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </ScrollReveal>
 
@@ -54,16 +54,16 @@ export function ProblemSection() {
               <p className="mb-6 text-xs font-semibold uppercase tracking-[0.12em] text-accent">
                 With Tabula
               </p>
-              <div className="space-y-3">
+              <ul className="space-y-3">
                 {afterItems.map((item, i) => (
-                  <div
+                  <li
                     key={i}
                     className="rounded-xl border border-accent/15 bg-accent/[0.03] px-5 py-4 text-sm"
                   >
                     {item}
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </ScrollReveal>
         </div>
