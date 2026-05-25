@@ -19,7 +19,7 @@ export function ContactForm() {
     const formData = new FormData(e.currentTarget as HTMLFormElement);
     const result = await submitContact(formData);
 
-    if (result.error) {
+    if ("error" in result) {
       setState({ error: result.error });
     } else {
       setState({ success: true });
