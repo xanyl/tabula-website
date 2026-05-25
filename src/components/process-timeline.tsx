@@ -99,8 +99,7 @@ export function ProcessTimeline() {
 
         {/* Timeline */}
         <div className="relative mx-auto max-w-2xl">
-          {/* Vertical line */}
-          <div className="absolute left-[18px] top-0 h-full w-px bg-gradient-to-b from-accent via-accent/40 to-transparent" />
+          <div aria-hidden="true" className="absolute left-[18px] top-0 h-full w-px bg-gradient-to-b from-accent via-accent/40 to-transparent" />
 
           {steps.map((step, i) => (
             <TimelineStep
