@@ -19,21 +19,26 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Tabula — AI-Powered Workflow Automation",
-  description: "Tabula transforms manual business workflows into AI-powered automated systems.",
+  title: {
+    default: "Tabula — Where workflows become intelligent",
+    template: "%s | Tabula",
+  },
+  description:
+    "Tabula helps companies transform manual workflows into automated, intelligent systems using practical AI.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} font-sans antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
