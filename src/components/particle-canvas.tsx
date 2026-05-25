@@ -48,8 +48,10 @@ export function ParticleCanvas() {
     if (!ctx) return;
 
     const resize = () => {
-      canvas.width = canvas.parentElement!.offsetWidth;
-      canvas.height = canvas.parentElement!.offsetHeight;
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      canvas.width = parent.offsetWidth;
+      canvas.height = parent.offsetHeight;
       initParticles(canvas.width, canvas.height);
     };
 
@@ -74,7 +76,7 @@ export function ParticleCanvas() {
         const cdx = p.x - mx;
         const cdy = p.y - my;
         const cursorDist = Math.sqrt(cdx * cdx + cdy * cdy);
-        if (cursorDist < 120) {
+        if (cursorDist < 120 && cursorDist > 1) {
           p.vx += (cdx / cursorDist) * 0.5;
           p.vy += (cdy / cursorDist) * 0.5;
         }
@@ -132,5 +134,5 @@ export function ParticleCanvas() {
     };
   }, [initParticles]);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
+  return <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0 z-0" />;
 }

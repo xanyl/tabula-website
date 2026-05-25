@@ -12,7 +12,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1200px] px-8 text-center">
         <div className="mb-8">
-          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/15 border border-accent/25 font-mono text-2xl font-bold text-accent shadow-[0_0_60px_rgba(99,102,241,0.3)] animate-float">
+          <div aria-hidden="true" className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/15 border border-accent/25 font-mono text-2xl font-bold text-accent shadow-[0_0_60px_rgba(99,102,241,0.3)] animate-float">
             T
           </div>
         </div>
