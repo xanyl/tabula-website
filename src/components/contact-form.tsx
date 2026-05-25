@@ -30,7 +30,7 @@ export function ContactForm() {
 
   if (state.success) {
     return (
-      <div className="rounded-2xl border border-accent/20 bg-accent/[0.04] p-8 text-center">
+      <div role="status" className="rounded-2xl border border-accent/20 bg-accent/[0.04] p-8 text-center">
         <p className="text-lg font-semibold">Message sent</p>
         <p className="mt-2 text-text-muted">
           We will get back to you within 24 hours.
@@ -97,7 +97,7 @@ export function ContactForm() {
       </div>
 
       {state.error && (
-        <p className="rounded-xl border border-red-500/20 bg-red-500/[0.06] px-4 py-3 text-sm text-red-400">
+        <p role="alert" className="rounded-xl border border-red-500/20 bg-red-500/[0.06] px-4 py-3 text-sm text-red-400">
           {state.error}
         </p>
       )}

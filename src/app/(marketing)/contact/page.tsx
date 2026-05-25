@@ -9,7 +9,7 @@ export default function ContactPage() {
     <section className="py-32">
       <div className="mx-auto max-w-[1200px] px-8">
         <div className="mx-auto max-w-lg">
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-accent text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-accent text-center font-serif">
             Start here
           </p>
           <h1 className="mt-3 text-center font-serif text-[clamp(2rem,4vw,3rem)] tracking-[-0.03em]">
