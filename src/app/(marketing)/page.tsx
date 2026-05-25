@@ -2,6 +2,7 @@ import { Hero } from "@/components/hero";
 import { ProblemSection } from "@/components/problem-section";
 import { ProcessTimeline } from "@/components/process-timeline";
 import { ServicesSection } from "@/components/services-section";
+import { UseCasesSection } from "@/components/use-cases-section";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <ProblemSection />
       <ProcessTimeline />
       <ServicesSection />
+      <UseCasesSection />
     </main>
   );
 }
