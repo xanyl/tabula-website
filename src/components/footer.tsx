@@ -29,9 +29,9 @@ export function Footer() {
         </div>
 
         <div className="space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-widest text-text-muted">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-text-muted">
             Navigate
-          </p>
+          </h2>
           <div className="grid gap-2">
             {footerLinks.map((link) => (
               <Link
