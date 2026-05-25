@@ -39,7 +39,7 @@ export function SocialProofSection() {
         </div>
 
         {/* Marquee */}
-        <div className="mt-16 overflow-hidden border-y border-white/[0.06] py-8">
+        <div className="mt-16 overflow-hidden border-y border-white/[0.06] py-8" aria-hidden="true">
           <div className="flex w-max animate-marquee gap-12">
             {marqueeItems.map((item, i) => (
               <span
