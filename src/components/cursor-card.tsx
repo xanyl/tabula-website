@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type MouseEvent } from "react";
+import { useRef, useEffect, type MouseEvent } from "react";
 
 export function CursorCard({
   icon,
@@ -12,8 +12,18 @@ export function CursorCard({
   desc: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useRef(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    prefersReducedMotion.current = mq.matches;
+    const handler = (e: MediaQueryListEvent) => { prefersReducedMotion.current = e.matches; };
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   const handleMouseMove = (e: MouseEvent) => {
+    if (prefersReducedMotion.current) return;
     const card = ref.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();
@@ -26,6 +36,7 @@ export function CursorCard({
   };
 
   const handleMouseLeave = () => {
+    if (prefersReducedMotion.current) return;
     const card = ref.current;
     if (!card) return;
     card.style.setProperty("--mx", "50%");
@@ -38,7 +49,7 @@ export function CursorCard({
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="group relative cursor-default overflow-hidden rounded-2xl border border-white/[0.06] bg-bg-surface p-8 transition-all duration-200"
+      className="group relative cursor-default overflow-hidden rounded-2xl border border-white/[0.06] bg-bg-surface p-8 transition-[opacity,background] duration-200"
       style={
         {
           "--mx": "50%",
@@ -56,7 +67,7 @@ export function CursorCard({
       />
 
       <div className="relative z-10">
-        <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 border border-accent/15 text-lg">
+        <div aria-hidden="true" className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 border border-accent/15 text-lg">
           {icon}
         </div>
         <h3 className="text-lg font-semibold tracking-[-0.02em]">{title}</h3>
