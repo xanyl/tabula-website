@@ -19,9 +19,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Tabula — Where workflows become intelligent",
-  },
+  title: "Tabula — Where workflows become intelligent",
   description:
     "Tabula helps companies transform manual workflows into automated, intelligent systems using practical AI.",
 };
