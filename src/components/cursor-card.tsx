@@ -49,7 +49,7 @@ export function CursorCard({
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="group relative cursor-default overflow-hidden rounded-2xl border border-white/[0.06] bg-bg-surface p-8 transition-[opacity,background] duration-200"
+      className="group relative cursor-default overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface p-8 transition-[opacity,background] duration-200"
       style={
         {
           "--mx": "50%",

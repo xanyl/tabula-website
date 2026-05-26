@@ -27,7 +27,7 @@ export function SocialProofSection() {
     <section className="py-32">
       <div className="mx-auto max-w-[1200px] px-8">
         {/* Metrics */}
-        <div className="flex flex-wrap items-center justify-center gap-16 border-y border-white/[0.06] py-20">
+        <div className="flex flex-wrap items-center justify-center gap-16 border-y border-border-subtle py-20">
           {metrics.map((m) => (
             <div key={m.label} className="text-center">
               <ScrollReveal>
@@ -39,7 +39,7 @@ export function SocialProofSection() {
         </div>
 
         {/* Marquee */}
-        <div className="mt-16 overflow-hidden border-y border-white/[0.06] py-8" aria-hidden="true">
+        <div className="mt-16 overflow-hidden border-y border-border-subtle py-8" aria-hidden="true">
           <div className="flex w-max animate-marquee gap-12">
             {marqueeItems.map((item, i) => (
               <span

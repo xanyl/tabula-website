@@ -27,7 +27,7 @@ export function CTASection() {
               </Link>
               <Link
                 href="/services"
-                className="rounded-xl border border-white/20 bg-white/[0.06] px-6 py-3.5 text-sm font-medium text-white backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/[0.1] active:scale-[0.98]"
+                className="rounded-xl border border-border-subtle bg-bg-glass-hover px-6 py-3.5 text-sm font-medium text-white backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-bg-glass-hover active:scale-[0.98]"
               >
                 Explore services
               </Link>

@@ -46,7 +46,7 @@ export default function ServicesPage() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="rounded-2xl border border-white/[0.06] bg-bg-surface p-8"
+              className="rounded-2xl border border-border-subtle bg-bg-surface p-8"
             >
               <h2 className="font-serif text-xl tracking-[-0.02em]">
                 {service.title}

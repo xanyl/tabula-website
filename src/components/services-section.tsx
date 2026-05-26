@@ -44,7 +44,7 @@ function ServiceCard({
   return (
     <motion.div
       ref={ref}
-      className={`group rounded-2xl border border-white/[0.06] bg-bg-surface p-8 transition-colors hover:border-white/[0.12] ${
+      className={`group rounded-2xl border border-border-subtle bg-bg-surface p-8 transition-colors hover:border-border-subtle ${
         service.large ? "md:row-span-2" : ""
       } ${service.wide ? "md:col-span-2" : ""}`}
       initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}

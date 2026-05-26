@@ -27,7 +27,7 @@ export default async function BlogPage() {
         </p>
 
         {posts.length === 0 ? (
-          <div className="mt-16 rounded-2xl border border-white/[0.06] bg-bg-surface p-12 text-center">
+          <div className="mt-16 rounded-2xl border border-border-subtle bg-bg-surface p-12 text-center">
             <p className="text-lg font-medium">No posts yet</p>
             <p className="mt-2 text-text-muted">Check back soon for new articles.</p>
           </div>
@@ -37,7 +37,7 @@ export default async function BlogPage() {
               <Link
                 key={post.id}
                 href={`/blog/${post.slug}`}
-                className="group rounded-2xl border border-white/[0.06] bg-bg-surface p-6 transition-[background] hover:bg-bg-surface/80"
+                className="group rounded-2xl border border-border-subtle bg-bg-surface p-6 transition-[background] hover:bg-bg-surface/80"
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.1em] text-text-muted">
                   {new Date(post.publishedAt!).toLocaleDateString("en-US", {

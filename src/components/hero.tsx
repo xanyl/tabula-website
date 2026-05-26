@@ -37,7 +37,7 @@ export function Hero() {
           </Link>
           <Link
             href="#how-it-works"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-6 py-3.5 text-sm font-medium text-text-primary transition-all hover:-translate-y-0.5 hover:border-white/[0.14] active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-xl border border-border-subtle bg-bg-glass px-6 py-3.5 text-sm font-medium text-text-primary transition-all hover:-translate-y-0.5 hover:border-border-subtle active:scale-[0.98]"
           >
             See how it works
           </Link>

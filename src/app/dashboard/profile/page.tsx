@@ -9,19 +9,19 @@ export default async function ProfilePage() {
       <p className="mt-1 text-text-muted">Your account details.</p>
 
       <div className="mt-8 max-w-md space-y-4">
-        <div className="rounded-2xl border border-white/[0.06] bg-bg-surface p-5">
+        <div className="rounded-2xl border border-border-subtle bg-bg-surface p-5">
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-text-muted">
             Name
           </p>
           <p className="mt-1">{session?.user?.name || "Not set"}</p>
         </div>
-        <div className="rounded-2xl border border-white/[0.06] bg-bg-surface p-5">
+        <div className="rounded-2xl border border-border-subtle bg-bg-surface p-5">
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-text-muted">
             Email
           </p>
           <p className="mt-1">{session?.user?.email}</p>
         </div>
-        <div className="rounded-2xl border border-white/[0.06] bg-bg-surface p-5">
+        <div className="rounded-2xl border border-border-subtle bg-bg-surface p-5">
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-text-muted">
             Member since
           </p>

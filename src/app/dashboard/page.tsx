@@ -23,19 +23,19 @@ export default async function DashboardOverview() {
       </p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
-        <div className="rounded-2xl border border-white/[0.06] bg-bg-surface p-6">
+        <div className="rounded-2xl border border-border-subtle bg-bg-surface p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-text-muted">
             Active Projects
           </p>
           <p className="mt-2 font-serif text-4xl">{projectCount}</p>
         </div>
-        <div className="rounded-2xl border border-white/[0.06] bg-bg-surface p-6">
+        <div className="rounded-2xl border border-border-subtle bg-bg-surface p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-text-muted">
             Inquiries
           </p>
           <p className="mt-2 font-serif text-4xl">{inquiryCount}</p>
         </div>
-        <div className="rounded-2xl border border-white/[0.06] bg-bg-surface p-6">
+        <div className="rounded-2xl border border-border-subtle bg-bg-surface p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-text-muted">
             Status
           </p>

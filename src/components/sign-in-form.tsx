@@ -31,22 +31,22 @@ export function SignInForm() {
     <div className="space-y-4">
       <button
         onClick={() => signIn("google")}
-        className="flex w-full items-center justify-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm font-medium transition-colors hover:bg-white/[0.06]"
+        className="flex w-full items-center justify-center gap-3 rounded-xl border border-border-subtle bg-bg-glass px-4 py-3 text-sm font-medium transition-colors hover:bg-bg-glass-hover"
       >
         Continue with Google
       </button>
 
       <button
         onClick={() => signIn("github")}
-        className="flex w-full items-center justify-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm font-medium transition-colors hover:bg-white/[0.06]"
+        className="flex w-full items-center justify-center gap-3 rounded-xl border border-border-subtle bg-bg-glass px-4 py-3 text-sm font-medium transition-colors hover:bg-bg-glass-hover"
       >
         Continue with GitHub
       </button>
 
       <div className="flex items-center gap-3">
-        <hr className="flex-1 border-white/[0.06]" />
+        <hr className="flex-1 border-border-subtle" />
         <span className="text-xs text-text-muted">or</span>
-        <hr className="flex-1 border-white/[0.06]" />
+        <hr className="flex-1 border-border-subtle" />
       </div>
 
       <form onSubmit={handleEmailSignIn}>
@@ -56,7 +56,7 @@ export function SignInForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm placeholder:text-text-muted focus:border-accent/30 focus:outline-none"
+          className="w-full rounded-xl border border-border-subtle bg-bg-glass px-4 py-3 text-sm placeholder:text-text-muted focus:border-accent/30 focus:outline-none"
         />
         <button
           type="submit"

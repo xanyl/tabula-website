@@ -21,11 +21,11 @@ export function DashboardSidebar() {
     <aside
       aria-label="Dashboard navigation"
       className={cn(
-        "hidden md:flex md:flex-col md:border-r md:border-white/[0.06] md:bg-bg-surface md:transition-all",
+        "hidden md:flex md:flex-col md:border-r md:border-border-subtle md:bg-bg-surface md:transition-all",
         collapsed ? "md:w-20" : "md:w-60"
       )}
     >
-      <div className="flex h-20 items-center border-b border-white/[0.06] px-5">
+      <div className="flex h-20 items-center border-b border-border-subtle px-5">
         <Link href="/" className="flex items-center gap-2.5 font-semibold tracking-tight">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/15 border border-accent/20 text-xs font-mono">
             T
@@ -43,7 +43,7 @@ export function DashboardSidebar() {
               "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors",
               pathname === item.href || pathname.startsWith(item.href + "/")
                 ? "bg-accent/10 text-accent border border-accent/15"
-                : "text-text-muted hover:text-text-primary hover:bg-white/[0.03]"
+                : "text-text-muted hover:text-text-primary hover:bg-bg-glass"
             )}
           >
             <span className="text-base" aria-hidden="true">
@@ -60,11 +60,11 @@ export function DashboardSidebar() {
         ))}
       </nav>
 
-      <div className="border-t border-white/[0.06] p-3">
+      <div className="border-t border-border-subtle p-3">
         <button
           onClick={() => signOut()}
           aria-label="Sign out"
-          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-text-muted transition-colors hover:text-text-primary hover:bg-white/[0.03]"
+          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-text-muted transition-colors hover:text-text-primary hover:bg-bg-glass"
         >
           <span aria-hidden="true">↩</span>
           {!collapsed && "Sign out"}
@@ -73,7 +73,7 @@ export function DashboardSidebar() {
           onClick={() => setCollapsed(!collapsed)}
           aria-expanded={!collapsed}
           aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-          className="mt-1 flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-text-muted transition-colors hover:text-text-primary hover:bg-white/[0.03]"
+          className="mt-1 flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-text-muted transition-colors hover:text-text-primary hover:bg-bg-glass"
         >
           <span aria-hidden="true">{collapsed ? "→" : "←"}</span>
           {!collapsed && "Collapse"}

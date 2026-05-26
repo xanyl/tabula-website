@@ -24,17 +24,17 @@ export default async function ProjectsPage() {
       </p>
 
       {projects.length === 0 ? (
-        <div className="mt-12 rounded-2xl border border-white/[0.06] bg-bg-surface p-12 text-center">
+        <div className="mt-12 rounded-2xl border border-border-subtle bg-bg-surface p-12 text-center">
           <p className="text-lg font-medium">No projects yet</p>
           <p className="mt-2 text-text-muted">
             Start a conversation to begin your first workflow transformation.
           </p>
         </div>
       ) : (
-        <div className="mt-8 overflow-hidden rounded-2xl border border-white/[0.06]">
+        <div className="mt-8 overflow-hidden rounded-2xl border border-border-subtle">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-white/[0.06] bg-bg-surface">
+              <tr className="border-b border-border-subtle bg-bg-surface">
                 <th className="px-6 py-3 text-left font-medium text-text-muted">
                   Project
                 </th>
@@ -50,7 +50,7 @@ export default async function ProjectsPage() {
               {projects.map((p) => (
                 <tr
                   key={p.id}
-                  className="border-b border-white/[0.04] last:border-0"
+                  className="border-b border-border-subtle last:border-0"
                 >
                   <td className="px-6 py-4">{p.name}</td>
                   <td className="px-6 py-4">

@@ -50,7 +50,7 @@ export function ContactForm() {
           name="name"
           type="text"
           required
-          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm placeholder:text-text-muted focus:border-accent/30 focus:outline-none"
+          className="w-full rounded-xl border border-border-subtle bg-bg-glass px-4 py-3 text-sm placeholder:text-text-muted focus:border-accent/30 focus:outline-none"
           placeholder="Your name"
         />
       </div>
@@ -64,7 +64,7 @@ export function ContactForm() {
           name="email"
           type="email"
           required
-          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm placeholder:text-text-muted focus:border-accent/30 focus:outline-none"
+          className="w-full rounded-xl border border-border-subtle bg-bg-glass px-4 py-3 text-sm placeholder:text-text-muted focus:border-accent/30 focus:outline-none"
           placeholder="you@company.com"
         />
       </div>
@@ -77,7 +77,7 @@ export function ContactForm() {
           id="company"
           name="company"
           type="text"
-          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm placeholder:text-text-muted focus:border-accent/30 focus:outline-none"
+          className="w-full rounded-xl border border-border-subtle bg-bg-glass px-4 py-3 text-sm placeholder:text-text-muted focus:border-accent/30 focus:outline-none"
           placeholder="Company name (optional)"
         />
       </div>
@@ -91,7 +91,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm placeholder:text-text-muted focus:border-accent/30 focus:outline-none resize-none"
+          className="w-full rounded-xl border border-border-subtle bg-bg-glass px-4 py-3 text-sm placeholder:text-text-muted focus:border-accent/30 focus:outline-none resize-none"
           placeholder="Tell us about your workflows, your team, and what you are trying to improve."
         />
       </div>

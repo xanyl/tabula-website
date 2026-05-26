@@ -10,7 +10,7 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/[0.06] py-12">
+    <footer className="border-t border-border-subtle py-12">
       <div className="mx-auto grid max-w-[1200px] gap-10 px-8 md:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-4">
           <div className="flex items-center gap-3 font-semibold tracking-tight">

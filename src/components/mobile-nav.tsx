@@ -82,7 +82,7 @@ export function MobileNav({ session }: { session: Session | null }) {
       <button
         ref={toggleRef}
         onClick={() => setOpen(!open)}
-        className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03]"
+        className="flex h-10 w-10 items-center justify-center rounded-xl border border-border-subtle bg-bg-glass"
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
       >
@@ -102,12 +102,12 @@ export function MobileNav({ session }: { session: Session | null }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-xl px-4 py-3 text-lg font-medium text-text-muted hover:bg-white/[0.04] hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/50"
+                className="rounded-xl px-4 py-3 text-lg font-medium text-text-muted hover:bg-bg-glass hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/50"
               >
                 {link.label}
               </Link>
             ))}
-            <hr className="my-4 border-white/[0.06]" />
+            <hr className="my-4 border-border-subtle" />
             {session ? (
               <Link
                 href="/dashboard"
@@ -119,7 +119,7 @@ export function MobileNav({ session }: { session: Session | null }) {
               <>
                 <Link
                   href="/auth/signin"
-                  className="rounded-xl px-4 py-3 text-center text-lg font-medium text-text-muted hover:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  className="rounded-xl px-4 py-3 text-center text-lg font-medium text-text-muted hover:bg-bg-glass focus:outline-none focus:ring-2 focus:ring-accent/50"
                 >
                   Sign in
                 </Link>

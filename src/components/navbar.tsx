@@ -14,7 +14,7 @@ export async function Navbar() {
   const session = await auth();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-bg-primary/60 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-border-subtle bg-bg-primary/60 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-[1200px] items-center justify-between px-8">
         <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 border border-accent/20 text-sm font-mono shadow-[0_0_30px_rgba(99,102,241,0.15)]">

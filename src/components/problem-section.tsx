@@ -31,7 +31,7 @@ export function ProblemSection() {
         <div className="grid gap-8 md:grid-cols-2">
           {/* Before */}
           <ScrollReveal delay={0.1}>
-            <div className="rounded-2xl border border-white/[0.06] bg-bg-surface p-10">
+            <div className="rounded-2xl border border-border-subtle bg-bg-surface p-10">
               <p className="mb-6 text-xs font-semibold uppercase tracking-[0.12em] text-text-muted">
                 Without Tabula
               </p>
@@ -39,7 +39,7 @@ export function ProblemSection() {
                 {beforeItems.map((item, i) => (
                   <li
                     key={i}
-                    className="rounded-xl border border-dashed border-white/[0.08] px-5 py-4 text-sm text-text-muted"
+                    className="rounded-xl border border-dashed border-border-subtle px-5 py-4 text-sm text-text-muted"
                   >
                     {item}
                   </li>

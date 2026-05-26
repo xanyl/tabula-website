@@ -1,6 +1,27 @@
 @import "tailwindcss";
 
+/* Light theme (default) */
 @theme {
+  --color-bg-primary: #FAFAFA;
+  --color-bg-surface: #F4F4F5;
+  --color-bg-elevated: #E4E4E7;
+  --color-text-primary: #09090B;
+  --color-text-muted: #52525B;
+  --color-accent: #6366F1;
+  --color-accent-glow: rgba(99, 102, 241, 0.25);
+  --color-border-subtle: rgb(0 0 0 / 0.06);
+  --color-bg-glass: rgb(0 0 0 / 0.03);
+  --color-bg-glass-hover: rgb(0 0 0 / 0.06);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --animate-marquee: marquee 20s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+/* Dark theme override */
+.dark {
   --color-bg-primary: #09090B;
   --color-bg-surface: #131316;
   --color-bg-elevated: #1A1A1F;
@@ -8,12 +29,9 @@
   --color-text-muted: #A1A1AA;
   --color-accent: #6366F1;
   --color-accent-glow: rgba(99, 102, 241, 0.35);
-  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
-  --font-serif: var(--font-instrument-serif), Georgia, serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-
-  --animate-marquee: marquee 20s linear infinite;
-  --animate-float: float 6s ease-in-out infinite;
+  --color-border-subtle: rgb(255 255 255 / 0.06);
+  --color-bg-glass: rgb(255 255 255 / 0.03);
+  --color-bg-glass-hover: rgb(255 255 255 / 0.06);
 }
 
 /* Custom animation utilities */

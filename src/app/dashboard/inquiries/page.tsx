@@ -27,7 +27,7 @@ export default async function InquiriesPage() {
       </p>
 
       {inquiries.length === 0 ? (
-        <div className="mt-12 rounded-2xl border border-white/[0.06] bg-bg-surface p-12 text-center">
+        <div className="mt-12 rounded-2xl border border-border-subtle bg-bg-surface p-12 text-center">
           <p className="text-lg font-medium">No inquiries yet</p>
           <p className="mt-2 text-text-muted">
             Your contact form submissions will appear here.
@@ -38,7 +38,7 @@ export default async function InquiriesPage() {
           {inquiries.map((inquiry) => (
             <div
               key={inquiry.id}
-              className="rounded-2xl border border-white/[0.06] bg-bg-surface p-5"
+              className="rounded-2xl border border-border-subtle bg-bg-surface p-5"
             >
               <div className="flex items-start justify-between">
                 <div>
